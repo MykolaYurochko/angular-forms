@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <form class="form" #myForm="ngForm" (ngSubmit)="submit()">
+    <h2 class="form__header">Driven form</h2>
+
+    <input class="form__email" type="email" name="email" autocomplete="off" placeholder="Enter your email*" ngModel
+      #emailControl="ngModel" email required>
+
+    <span class="form__email-error" *ngIf="emailControl.touched && !emailControl.value ">
+      Email is required
+    </span>
+
+    <span class="form__email-error" *ngIf="emailControl.touched && emailControl.hasError('email')">
+      Bad email format
+    </span>
+
+    <input class="form__password" type="password" name="pass" placeholder="Enter your password*" ngModel
+      #passControl="ngModel" minlength="4" maxlength="10" required>
+
+    <span class="form__password-error" *ngIf="passControl.touched && !passControl.value">
+      Password is required
+    </span>
+
+    <span class="form__password-error" *ngIf="passControl.touched && passControl.hasError('minlength')">
+      Too small password
+    </span>
+    <button [disabled]="myForm.invalid" type="submit">Submit</button>
+  </form>
+</div>

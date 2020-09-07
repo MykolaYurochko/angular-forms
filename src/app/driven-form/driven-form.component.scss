@@ -1,0 +1,104 @@
+.wrapper {
+  position: relative;
+  min-height: calc(100vh - 170px);
+  margin: 70px 0 0;
+  padding-top: 50px;
+
+  @media screen and (max-width: 992px) {
+    min-height: calc(100vh - 220px);
+  }
+
+  .form {
+    width: 60%;
+    margin: 0 auto;
+    padding: 50px 10%;
+    border-radius: 10px;
+    box-shadow: 0 -10px 10px #8383837c;
+    background: #cfdadd33;
+
+    @media screen and (max-width: 992px) {
+      width: 95%;
+      padding: 30px 5%;
+    }
+
+    &__header {
+      padding: 20px 0 0;
+      text-align: center;
+      font-size: 1.77em;
+      color: #fff;
+    }
+
+    & input {
+      display: block;
+      width: 100%;
+      margin: 50px auto;
+      padding: 0 5px;
+      border: none;
+      border-bottom: 2px solid #c4c4c4;
+      background: none;
+      color: #ffffff;
+      font-size: 1.3em;
+      font-weight: 300;
+
+      &::placeholder {
+        color: #c4c4c4;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #fff;
+      }
+    }
+
+    span {
+      position: absolute;
+    }
+
+    &__email-error {
+      top: 240px;
+      padding-left: 5px;
+      color: #c4c4c4;
+
+      @media screen and (max-width: 992px) {
+        top: 220px;
+      }
+    }
+
+    &__password-error {
+      top: 320px;
+      padding-left: 5px;
+      color: #c4c4c4;
+
+      @media screen and (max-width: 992px) {
+        top: 300px;
+      }
+    }
+
+    & button {
+      display: block;
+      width: 50%;
+      margin: 0 auto;
+      padding: 5px 0;
+      border-radius: none;
+      border: 2px solid #c4c4c4;
+      outline: none;
+      background: none;
+      color: #c4c4c4;
+      font-size: 1.3em;
+
+      &:disabled {
+        border: 2px solid #838383;
+        color: #838383;
+
+        &:hover {
+          background: none;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: #c4c4c43f;
+      }
+    }
+  }
+}

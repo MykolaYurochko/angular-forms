@@ -1,0 +1,54 @@
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding: 10px 10%;
+  box-shadow: 0 -10px 10px #8383837c;
+  background: #cfdadd33;
+
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  & .links {
+    display: flex;
+  }
+
+  &__item {
+    height: 50px;
+    @media screen and (max-width: 992px) {
+      margin: 5px 0;
+    }
+    &--link {
+      padding: 10px;
+      & img {
+        height: 30px;
+        width: 30px;
+
+        &:hover {
+          animation: flip 1s 1 alternate;
+        }
+      }
+    }
+  }
+
+  & p {
+    font-weight: 700;
+
+    @media screen and (max-width: 992px) {
+      text-align: center;
+    }
+  }
+}
+
+@keyframes flip {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

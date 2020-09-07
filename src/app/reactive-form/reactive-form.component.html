@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <h2 class="form__header">Reactive form</h2>
+    <input class="form__name" type="text" placeholder="Enter your name*" formControlName="username" autocomplete="off">
+
+
+    <span class="form__name--error" *ngIf="form.controls.username.touched && !form.controls.username.value">
+      Name is required!
+    </span>
+    <span class="form__name--error"
+      *ngIf="form.controls.username.touched && form.controls.username.hasError('minlength')">
+      Too small name
+    </span>
+
+    <input class="form__password" type="password" placeholder="Enter your password*" formControlName="pass">
+
+    <span class="form__password--error" *ngIf="form.controls.pass.touched && !form.controls.pass.value ">
+      Password is required!
+    </span>
+    <span class="form__password--error" *ngIf="form.controls.pass.value && form.hasError('passError') ">
+      Password must contain numbers, letters and at least one uppercase letter!
+    </span>
+
+
+    <div formArrayName="emails">
+      <div class="form__email" *ngFor="let control of emailsArr.controls; index as i">
+        <input type="text" placeholder="Enter your email" [formControl]="emailsArr.controls[i]">
+        <button class="remove-btn" (click)="removeItem(i)">Remove</button>
+      </div>
+      <div class="form__email" *ngFor="let control of emailsArr.controls">
+        <span *ngIf="control.touched && !control.value">
+          Email is required!
+        </span>
+        <span *ngIf="control.value && control.hasError('email')">
+          Bad email format!
+        </span>
+      </div>
+
+
+      <button class="add-btn" (click)="addItem()">Add email</button>
+    </div>
+    <button class="form__submit" [disabled]="form.invalid" type="submit">Submit</button>
+  </form>
+</div>
